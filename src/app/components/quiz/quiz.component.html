@@ -1,14 +1,18 @@
 <div class="quiz-container">
     <div class="quiz-logo d-flex-column-center">
         <img src="./assets/images/logo.png" alt="Buzzfeed clone" srcset="">
-        <h1>Título</h1>
+        <h1>{{title}}</h1>
     </div>
     <div class="quiz-questions d-flex-column-center">
-        <h3>Questão selecionada</h3>
+        <h3>{{questionSelected.question}}</h3>
     </div>
     <div class="quiz-options">
-        <button class="btn-option">
-            optionname
+        <button 
+            *ngFor="let option of questionSelected.options; let i = index"
+            (click)="playerChoose(option.alias)"
+            class="btn-option"
+        >
+            {{option.name}}
         </button>
     </div>
     <div class="quiz-results d-flex-column-center">
